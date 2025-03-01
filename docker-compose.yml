@@ -1,0 +1,7 @@
+services:
+  vpn-manager:
+    image: nyttevaerdien/vpn-manager:0.0.1-SNAPSHOT
+    container_name: vpn-manager
+    restart: unless-stopped
+    ports:
+      - "80:80"

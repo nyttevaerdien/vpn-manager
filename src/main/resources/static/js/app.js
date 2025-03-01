@@ -1,4 +1,7 @@
 async function callRestartEndpoint() {
+    let loader = '<div class="loader"></div>';
+    document.getElementById('output').innerHTML = loader;
+
     const username = "user";
     const password = "user";
 
