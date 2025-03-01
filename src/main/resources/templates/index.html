@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>Thymeleaf SPA</title>
     <script src="/js/app.js" defer></script>
+    <link th:href="@{/css/main.css}" rel="stylesheet"/>
 </head>
 <body>
 <h1>Welcome to restart VPN service (´｡• ω •｡`)</h1>
-<button onclick="callRestartEndpoint()">PUSH ME</button>
-<p id="output"></p>
+<br/>
+<button onclick="callRestartEndpoint()"><span>НАЖМИ НА МЕНЯ</span></button>
+<br/>
+<h2 id="output"></h2>
 </body>
 </html>

@@ -1,21 +1,29 @@
-function callRestartEndpoint() {
-    fetch(`/vpn/restart`, {
-        method: 'POST'
+async function callRestartEndpoint() {
+    const username = "user";
+    const password = "user";
+
+    // Encode credentials in Base64 format
+    const basicAuth = 'Basic ' + btoa(username + ":" + password);
+
+    try {
+
+    let response = await fetch(`/vpn/restart`, {
+        method: 'POST',
+        headers: {
+            "Authorization": basicAuth
+        }
     })
-        .then(() => console.log("finished execution"))
-        .then(response => response.json())  // Parse the JSON response
-        .then(data => console.log(data))
-        .then(data => {
-            if (data && data.output) {  // Check if data and output are available
-                document.getElementById("output").textContent = data.message;
-            } else {
-                document.getElementById("output").textContent = errorMessage
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            document.getElementById("output").textContent = errorMessage
-        });
+    let data = await response.json(); // .json() is asynchronous and therefore must be awaited
+    if (data && data.message) {  // Check if data and output are available
+        document.getElementById("output").textContent = successMessage;
+    } else {
+        throw new Error('the response is empty')
+    }
+    } catch (error) {
+        console.error("Error:", error);
+        document.getElementById("output").textContent = errorMessage
+    }
 }
 
-const errorMessage = "Something went wrong. Try pressing the button again.";
+const successMessage = "перезагрузка завершилась успешно .. попробуй переподключиться через пару секунд";
+const errorMessage = "что-то пошло не так .. попробуй нажать на кнопку еще раз";

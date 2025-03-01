@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class VpnController {
 
-//    private static final String RESTART_COMMAND = "docker restart amnezia-xray amnezia-awg";
-    private static final String RESTART_COMMAND = "echo \"success\"";
+    private static final String RESTART_COMMAND = "docker restart amnezia-xray amnezia-awg";
 
     private final SshService sshService;
 
