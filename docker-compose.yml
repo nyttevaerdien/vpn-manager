@@ -1,8 +1,10 @@
 services:
   vpn-manager:
-    image: nyttevaerdien/vpn-manager:1.1.1
+    image: nyttevaerdien/vpn-manager:1.2.0
     container_name: vpn-manager
     restart: unless-stopped
+    volumes:
+      - "./db:/db"
     ports:
       - "80:8080"
       - "443:8080"

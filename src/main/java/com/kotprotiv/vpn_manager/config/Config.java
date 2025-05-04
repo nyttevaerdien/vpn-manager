@@ -10,11 +10,6 @@ import org.springframework.context.annotation.Configuration;
 public class Config {
 
     @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper();
-    }
-
-    @Bean
     @ConfigurationProperties("remote-server")
     public RemoteServer remoteServer() {
         return new RemoteServer();
