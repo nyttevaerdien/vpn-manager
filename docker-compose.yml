@@ -1,6 +1,6 @@
 services:
   vpn-manager:
-    image: nyttevaerdien/vpn-manager:1.1.0
+    image: nyttevaerdien/vpn-manager:1.1.1
     container_name: vpn-manager
     restart: unless-stopped
     ports:
