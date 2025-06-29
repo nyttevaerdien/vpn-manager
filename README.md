@@ -5,3 +5,8 @@ To apply configuration on server run:
 Quick restart:
 
 `docker compose pull && docker compose up -d`
+
+
+todo: 
+add cronjob for certbot renewal
+`docker compose run --rm certbot renew`
