@@ -1,3 +1,7 @@
-quick restart
+To apply configuration on server run:
 
-docker compose -f vpn-manager-docker-compose.yml pull && docker compose -f vpn-manager-docker-compose.yml up -d
+`cd configuration && scp -r . root@217.160.164.219:app/`
+
+Quick restart:
+
+`docker compose pull && docker compose up -d`

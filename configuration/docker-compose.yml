@@ -1,0 +1,28 @@
+services:
+  proxy:
+    image: nginx:stable-alpine
+    container_name: proxy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./certs:/certs:ro
+    networks:
+      - app-network
+    depends_on:
+      - vpn-manager
+  vpn-manager:
+    image: nyttevaerdien/vpn-manager:2.0.0
+    container_name: vpn-manager
+    restart: unless-stopped
+    volumes:
+      - "./db:/db"
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+networks:
+  app-network:
+    driver: bridge

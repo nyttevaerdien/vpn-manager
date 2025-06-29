@@ -6,7 +6,7 @@ plugins {
 }
 
 group = 'com.kotprotiv'
-version = '1.2.0'
+version = '2.0.0'
 
 java {
 	toolchain {
@@ -53,6 +53,12 @@ tasks.named('test') {
 jib {
 	from {
 		image = 'eclipse-temurin:21-jdk-alpine'
+		platforms {
+			platform {
+				architecture = 'amd64'
+				os = 'linux'
+			}
+		}
 	}
 	to {
 		image = 'nyttevaerdien/vpn-manager' + ':' + rootProject.version
