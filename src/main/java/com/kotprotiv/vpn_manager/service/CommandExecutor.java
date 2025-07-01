@@ -8,6 +8,8 @@ import java.io.IOException;
 
 public interface CommandExecutor {
 
-    @Retryable(maxAttempts = 5, backoff = @Backoff(delay = 1000))
+    @Retryable( maxAttemptsExpression = "${retry.app.maxAttempts}",
+            backoff = @Backoff(delayExpression = "${retry.app.backOffDelay}",
+                    multiplierExpression = "${retry.app.multiplier}"))
     String execute(String command) throws JSchException, IOException;
 }

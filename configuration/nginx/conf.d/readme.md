@@ -1,4 +1,4 @@
-before initically calling certbot, default.conf should be created with the following content:
+before initially calling certbot, default.conf should be created with the following content:
 
 ```nginx 
     server {
